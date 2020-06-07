@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  ghost-theme-docker:
+    image: ghost-theme-docker:1.0
+    container_name: ghost-theme-docker
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './.tmp/data:/var/lib/ghost/content/data'
+      - './.tmp/images:/var/lib/ghost/content/images'
+      - './.tmp/settings:/var/lib/ghost/content/settings'
+      - './Pico:/var/lib/ghost/content/themes/Pico'
+    ports:
+      - "3102:2368"
+    environment:
+      - NODE_ENV=development

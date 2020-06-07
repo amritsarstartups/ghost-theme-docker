@@ -1,0 +1,3 @@
+[submodule "Pico"]
+	path = Pico
+	url = https://github.com/TryGhost/Pico.git
